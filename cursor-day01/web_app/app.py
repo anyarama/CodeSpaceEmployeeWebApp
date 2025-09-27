@@ -156,7 +156,7 @@ def list_employees():
                    e.hire_date
             FROM employees AS e
             LEFT JOIN departments AS d ON d.id = e.department_id
-            ORDER BY e.id DESC
+            ORDER BY e.id ASC
             """
         ).fetchall()
     return jsonify([dict(row) for row in rows])
