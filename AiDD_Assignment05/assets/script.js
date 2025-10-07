@@ -93,7 +93,9 @@
     required: (value) => value.trim().length > 0,
     email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
     minLength: (value, min) => value.length >= min,
-    passwordsMatch: (password, confirm) => password === confirm && password.length >= 8
+    nameCharacters: (value) => /^[A-Za-z\s'-]+$/.test(value),
+    passwordStrength: (value) => /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(value),
+    passwordsMatch: (password, confirm) => password === confirm && /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password)
   };
   
   /**
@@ -101,23 +103,41 @@
    */
   if (firstName && firstNameError) {
     firstName.addEventListener('blur', () => {
-      validateField(
-        firstName,
-        firstNameError,
-        validators.required,
-        'First name is required'
-      );
+      if (!validators.required(firstName.value)) {
+        validateField(
+          firstName,
+          firstNameError,
+          validators.required,
+          'First name is required'
+        );
+      } else {
+        validateField(
+          firstName,
+          firstNameError,
+          validators.nameCharacters,
+          'Please use letters, spaces, apostrophes, or hyphens only'
+        );
+      }
     });
   }
   
   if (lastName && lastNameError) {
     lastName.addEventListener('blur', () => {
-      validateField(
-        lastName,
-        lastNameError,
-        validators.required,
-        'Last name is required'
-      );
+      if (!validators.required(lastName.value)) {
+        validateField(
+          lastName,
+          lastNameError,
+          validators.required,
+          'Last name is required'
+        );
+      } else {
+        validateField(
+          lastName,
+          lastNameError,
+          validators.nameCharacters,
+          'Please use letters, spaces, apostrophes, or hyphens only'
+        );
+      }
     });
   }
   
@@ -146,8 +166,8 @@
       validateField(
         password,
         passwordError,
-        (value) => validators.minLength(value, 8),
-        'Password must be at least 8 characters'
+        validators.passwordStrength,
+        'Password must be 8+ characters with at least one letter and one number'
       );
     });
     
@@ -169,19 +189,19 @@
           validators.required,
           'Please confirm your password'
         );
+      } else if (!validators.passwordStrength(confirmPassword.value)) {
+        validateField(
+          confirmPassword,
+          confirmPasswordError,
+          () => false,
+          'Password must be 8+ characters with at least one letter and one number'
+        );
       } else if (password && confirmPassword.value !== password.value) {
         validateField(
           confirmPassword,
           confirmPasswordError,
           () => false,
           'Passwords do not match'
-        );
-      } else if (confirmPassword.value.length < 8) {
-        validateField(
-          confirmPassword,
-          confirmPasswordError,
-          () => false,
-          'Password must be at least 8 characters'
         );
       } else {
         confirmPassword.removeAttribute('aria-invalid');
@@ -205,27 +225,45 @@
     
     // Validate first name
     if (firstName && firstNameError) {
-      const isValid = validateField(
+      let firstNameValid = validateField(
         firstName,
         firstNameError,
         validators.required,
         'First name is required'
       );
-      if (!isValid) {
+      if (firstNameValid) {
+        firstNameValid = validateField(
+          firstName,
+          firstNameError,
+          validators.nameCharacters,
+          'Please use letters, spaces, apostrophes, or hyphens only'
+        );
+      }
+      if (!firstNameValid) {
         isFormValid = false;
-        if (isFormValid === false) firstName.focus();
+        if (document.activeElement !== firstName) {
+          firstName.focus();
+        }
       }
     }
     
     // Validate last name
     if (lastName && lastNameError) {
-      const isValid = validateField(
+      let lastNameValid = validateField(
         lastName,
         lastNameError,
         validators.required,
         'Last name is required'
       );
-      if (!isValid) {
+      if (lastNameValid) {
+        lastNameValid = validateField(
+          lastName,
+          lastNameError,
+          validators.nameCharacters,
+          'Please use letters, spaces, apostrophes, or hyphens only'
+        );
+      }
+      if (!lastNameValid) {
         isFormValid = false;
         if (!firstName || firstName.getAttribute('aria-invalid') !== 'true') {
           lastName.focus();
@@ -264,8 +302,8 @@
       const isValid = validateField(
         password,
         passwordError,
-        (value) => validators.minLength(value, 8),
-        'Password must be at least 8 characters'
+        validators.passwordStrength,
+        'Password must be 8+ characters with at least one letter and one number'
       );
       if (!isValid) {
         isFormValid = false;
@@ -285,11 +323,11 @@
       if (!validators.required(confirmPassword.value)) {
         errorMsg = 'Please confirm your password';
         isValid = false;
+      } else if (!validators.passwordStrength(confirmPassword.value)) {
+        errorMsg = 'Password must be 8+ characters with at least one letter and one number';
+        isValid = false;
       } else if (confirmPassword.value !== password.value) {
         errorMsg = 'Passwords do not match';
-        isValid = false;
-      } else if (confirmPassword.value.length < 8) {
-        errorMsg = 'Password must be at least 8 characters';
         isValid = false;
       }
       

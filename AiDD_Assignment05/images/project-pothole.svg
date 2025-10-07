@@ -1,0 +1,21 @@
+<svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-pothole" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#36d1dc"/>
+      <stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="24" fill="#0a0b0f"/>
+  <path d="M0 240 Q160 180 320 220 T640 220 V360 H0 Z" fill="url(#grad-pothole)" opacity="0.35"/>
+  <rect x="64" y="64" width="192" height="120" rx="20" fill="url(#grad-pothole)" opacity="0.25"/>
+  <rect x="272" y="64" width="304" height="32" rx="16" fill="#ffffff" opacity="0.35"/>
+  <rect x="272" y="112" width="240" height="16" rx="8" fill="#ffffff" opacity="0.25"/>
+  <rect x="272" y="144" width="208" height="16" rx="8" fill="#ffffff" opacity="0.2"/>
+  <circle cx="140" cy="270" r="64" fill="#12141a"/>
+  <circle cx="500" cy="280" r="52" fill="#12141a"/>
+  <path d="M96 224 L184 224 L212 276 L68 276 Z" fill="#1a1d26"/>
+  <path d="M456 226 L544 226 L568 270 L432 270 Z" fill="#1a1d26"/>
+  <rect x="272" y="188" width="288" height="12" rx="6" fill="#ffffff" opacity="0.15"/>
+  <rect x="272" y="212" width="256" height="12" rx="6" fill="#ffffff" opacity="0.12"/>
+  <rect x="272" y="236" width="208" height="12" rx="6" fill="#ffffff" opacity="0.1"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-sap" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="24" fill="#0a0b0f"/>
+  <rect x="48" y="56" width="544" height="248" rx="24" fill="#12141a" opacity="0.95"/>
+  <rect x="96" y="96" width="448" height="40" rx="20" fill="url(#grad-sap)" opacity="0.2"/>
+  <rect x="96" y="152" width="192" height="128" rx="20" fill="#1a1d26"/>
+  <rect x="312" y="152" width="208" height="20" rx="10" fill="#ffffff" opacity="0.3"/>
+  <rect x="312" y="188" width="192" height="16" rx="8" fill="#ffffff" opacity="0.24"/>
+  <rect x="312" y="216" width="176" height="16" rx="8" fill="#ffffff" opacity="0.18"/>
+  <rect x="312" y="252" width="160" height="12" rx="6" fill="#ffffff" opacity="0.14"/>
+  <rect x="312" y="276" width="128" height="12" rx="6" fill="#ffffff" opacity="0.1"/>
+  <path d="M128 200 H256" stroke="#36d1dc" stroke-width="8" stroke-linecap="round"/>
+  <path d="M128 228 H224" stroke="#667eea" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  <path d="M128 256 H208" stroke="#764ba2" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+</svg>

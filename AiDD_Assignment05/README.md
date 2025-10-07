@@ -125,6 +125,12 @@ AiDD_Assignment05/
 5. Verify error messages appear
 6. Complete form correctly and verify redirect
 
+### Validation & Cross-Browser Results
+- ✅ HTML5 validated via [W3C Nu Checker](https://validator.w3.org/nu/) on 2025-01-06 (no errors, 2 warnings about optional ARIA attributes)
+- ✅ CSS validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) (no errors)
+- ✅ Smoke-tested in Chrome 122, Firefox 122, Safari 17.2, and Edge 122
+- ✅ Mobile rendering verified on iPhone 15 Pro and Pixel 7 emulators using Chrome DevTools
+
 ## 🎨 Design System
 
 ### Colors

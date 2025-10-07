@@ -131,6 +131,8 @@
                   class="form-input" 
                   required 
                   autocomplete="given-name"
+                  pattern="^[A-Za-z\\s'-]+$"
+                  title="Use letters, spaces, apostrophes, or hyphens only."
                   aria-describedby="firstNameError"
                 >
                 <div id="firstNameError" class="form-error" role="alert" aria-live="polite"></div>
@@ -145,6 +147,8 @@
                   class="form-input" 
                   required 
                   autocomplete="family-name"
+                  pattern="^[A-Za-z\\s'-]+$"
+                  title="Use letters, spaces, apostrophes, or hyphens only."
                   aria-describedby="lastNameError"
                 >
                 <div id="lastNameError" class="form-error" role="alert" aria-live="polite"></div>
@@ -173,10 +177,12 @@
                   class="form-input" 
                   required 
                   minlength="8"
+                  pattern="^(?=.*[A-Za-z])(?=.*\\d).{8,}$"
+                  title="Use at least 8 characters with one letter and one number."
                   autocomplete="new-password"
                   aria-describedby="passwordHelp passwordError"
                 >
-                <p id="passwordHelp" class="form-help">Must be at least 8 characters</p>
+                <p id="passwordHelp" class="form-help">Minimum 8 characters with at least one letter and one number</p>
                 <div id="passwordError" class="form-error" role="alert" aria-live="polite"></div>
               </div>
 
@@ -189,6 +195,8 @@
                   class="form-input" 
                   required 
                   minlength="8"
+                  pattern="^(?=.*[A-Za-z])(?=.*\\d).{8,}$"
+                  title="Match the password: at least 8 characters with one letter and one number."
                   autocomplete="new-password"
                   aria-describedby="confirmPasswordError"
                 >
