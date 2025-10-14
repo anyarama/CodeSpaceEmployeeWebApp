@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Aneesh Yaramati</title>
+  <meta name="description" content="Selected data engineering and analytics projects by Aneesh Yaramati.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <meta property="og:title" content="Projects — Aneesh Yaramati">
+  <meta property="og:description" content="View my data engineering and analytics projects.">
+  <meta property="og:image" content="{{ url_for('static', filename='images/headshot.jpg') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  
+  <header role="banner" class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="{{ url_for('index') }}" aria-label="Home">Aneesh Yaramati</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-controls="primaryNav" aria-expanded="false">
+        <span class="hamburger"></span>
+        Menu
+      </button>
+      <nav aria-label="Primary navigation">
+        <ul id="primaryNav" class="nav">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('resume') }}">Resume</a></li>
+          <li><a href="{{ url_for('projects') }}" class="active" aria-current="page">Projects</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Where Data Meets Real Impact</h1>
+        <p class="page-subtitle">From 40M chaotic records to systems teams trust—here's how I turn technical complexity into business clarity</p>
+      </div>
+    </section>
+
+    <section class="projects-content">
+      <div class="container">
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header-with-icon">
+              <div class="project-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="48" height="48" rx="12" fill="rgba(102, 126, 234, 0.15)"/>
+                  <path d="M24 14C19.58 14 16 16.69 16 20V22C16 25.31 19.58 28 24 28C28.42 28 32 25.31 32 22V20C32 16.69 28.42 14 24 14Z" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 22V28C16 31.31 19.58 34 24 34C28.42 34 32 31.31 32 28V22" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="project-header-text">
+                <h2 class="project-title">Master Data Management Platform</h2>
+                <p class="project-meta">Schlumberger | 2022-2024</p>
+              </div>
+            </div>
+            
+            <div class="project-body">
+              <p class="project-description"><strong>The Problem:</strong> Procurement teams were drowning in conflicting data—10+ legacy systems, each with its own "truth" about materials. A single product had 127 different identifiers. Analysts spent more time reconciling numbers than analyzing them.</p>
+              
+              <p class="project-description"><strong>My Solution:</strong> I built the bridge from chaos to clarity. Over 18 months, I consolidated these fragmented systems into a single master data platform that 40 million records call home. But numbers tell only half the story—the real win was when analysts started saying, "This is the first time I trust these numbers."</p>
+              
+              <h3 class="project-subtitle">Impact by the Numbers</h3>
+              <ul class="project-list">
+                <li><strong>40M golden records</strong> created through optimized ETL pipelines—one source of truth, finally</li>
+                <li><strong>99% data readiness</strong> downstream (up from 73%) through 25+ intelligent validation rules</li>
+                <li><strong>20% improvement</strong> in system reliability via smart archival workflows</li>
+                <li><strong>30% faster</strong> material synchronization using real-time SOAP integrations</li>
+              </ul>
+              
+              <h3 class="project-subtitle">The Technical Build</h3>
+              <p class="project-description">I designed comprehensive data quality frameworks with pre/post-load validations that caught errors before they became million-dollar mistakes. Established governance protocols for SAP MDG migration that balanced compliance with speed. Built real-time integration services that kept critical business processes running without hiccups.</p>
+            </div>
+            
+            <div class="project-footer">
+              <div class="project-links">
+                <a class="project-link" href="https://www.slb.com/products-and-services/delivering-digital-at-scale/data-solutions/data-solutions-for-the-cloud/data-management" target="_blank" rel="noopener noreferrer">Learn More</a>
+              </div>
+              <div class="tech-tags">
+                <span class="tech-tag">ETL</span>
+                <span class="tech-tag">Informatica</span>
+                <span class="tech-tag">SAP MDG</span>
+                <span class="tech-tag">PL/SQL</span>
+                <span class="tech-tag">SOAP APIs</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header-with-icon">
+              <div class="project-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="48" height="48" rx="12" fill="rgba(102, 126, 234, 0.15)"/>
+                  <path d="M24 16L20 20L24 24L28 20L24 16Z" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 22L14 24L16 26" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M32 22L34 24L32 26" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="18" y="28" width="12" height="6" rx="1" stroke="#667eea" stroke-width="2"/>
+                  <circle cx="21" cy="33" r="1.5" fill="#667eea"/>
+                  <circle cx="27" cy="33" r="1.5" fill="#667eea"/>
+                </svg>
+              </div>
+              <div class="project-header-text">
+                <h2 class="project-title">Pothole Detection System</h2>
+                <p class="project-meta">Springer Publication | 2021-2022</p>
+              </div>
+            </div>
+            
+            <div class="project-body">
+              <p class="project-description"><strong>The Challenge:</strong> India's road conditions cause thousands of accidents annually. Traditional inspection methods are slow and expensive. What if AI could spot dangerous potholes in real-time, protecting drivers and enabling smarter infrastructure investment?</p>
+              
+              <p class="project-description"><strong>What I Built:</strong> A computer vision system that turns dashcam footage into actionable safety data. Think of it as giving vehicles a sixth sense for road hazards—detecting potholes at highway speeds with enough accuracy for real deployment.</p>
+              
+              <h3 class="project-subtitle">Results & Recognition</h3>
+              <ul class="project-list">
+                <li><strong>82% detection accuracy</strong> with YOLOv5m—deployment-ready for real-world ADAS systems</li>
+                <li>Built and annotated <strong>1,995-image dataset</strong> capturing India's diverse road conditions</li>
+                <li>Optimized for <strong>real-time processing</strong> through strategic anchor tuning and augmentation</li>
+                <li><strong>Published in Springer</strong> conference proceedings—peer-validated research</li>
+              </ul>
+              
+              <h3 class="project-subtitle">Technical Deep Dive</h3>
+              <p class="project-description">Benchmarked YOLOv5 variants against Faster-RCNN with ResNet101 backbone to find the sweet spot between accuracy and speed. Implemented aggressive data augmentation to handle India's challenging lighting and weather conditions. The result? A system fast enough for highway speeds, accurate enough for driver safety.</p>
+            </div>
+            
+            <div class="project-footer">
+              <div class="project-links">
+                <a class="project-link" href="https://link.springer.com/chapter/10.1007/978-981-19-8669-7_53" target="_blank" rel="noopener noreferrer">View Publication</a>
+              </div>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">YOLOv5</span>
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">OpenCV</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header-with-icon">
+              <div class="project-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="48" height="48" rx="12" fill="rgba(102, 126, 234, 0.15)"/>
+                  <circle cx="24" cy="20" r="6" stroke="#667eea" stroke-width="2"/>
+                  <path d="M24 14L25.5 17L28 18L25.5 19L24 22L22.5 19L20 18L22.5 17L24 14Z" fill="#667eea"/>
+                  <path d="M16 28C16 25.79 19.58 24 24 24C28.42 24 32 25.79 32 28" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M18 32C18 31.45 20.69 31 24 31C27.31 31 30 31.45 30 32" stroke="#36d1dc" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="project-header-text">
+                <h2 class="project-title">Live-in-Labs Automation Initiative</h2>
+                <p class="project-meta">Amrita Vishwa Vidyapeetham | 2020-2021</p>
+              </div>
+            </div>
+            
+            <div class="project-body">
+              <p class="project-description"><strong>The Mission:</strong> Rural artisans in Byse were losing to factory-made alternatives. Their eco-friendly areca-leaf plates were perfect for sustainability-conscious markets, but handcrafting limited production. How could we scale without losing the human touch?</p>
+              
+              <p class="project-description"><strong>What We Created:</strong> Not a replacement for artisans, but a multiplication of their skills. Our semi-automatic system let them triple output while keeping quality control in human hands. This wasn't about efficiency for efficiency's sake—it was about creating economic opportunity without destroying tradition.</p>
+              
+              <h3 class="project-subtitle">Human Impact</h3>
+              <ul class="project-list">
+                <li>Led <strong>8-person cross-disciplinary team</strong>—engineers, designers, and community members as co-creators</li>
+                <li><strong>3× production increase</strong> without sacrificing the quality that made these plates special</li>
+                <li>Deployed in <strong>Byse community</strong>—turned users into micro-entrepreneurs, not factory workers</li>
+                <li>Created <strong>sustainable documentation</strong>—playbooks and maintenance guides for long-term independence</li>
+              </ul>
+              
+              <h3 class="project-subtitle">The Build Process</h3>
+              <p class="project-description">Started with field research—actually living with artisans to understand their workflow. Rapidly prototyped mechanical components that complemented human skill rather than replaced it. Documented everything so local craftspeople could maintain and replicate the system without external dependency. The goal was empowerment, not just efficiency.</p>
+            </div>
+            
+            <div class="project-footer">
+              <div class="project-links">
+                <a class="project-link" href="https://www.amrita.edu/school/sustainable-futures/academics/live-in-labs/" target="_blank" rel="noopener noreferrer">Learn More</a>
+              </div>
+              <div class="tech-tags">
+                <span class="tech-tag">Product Design</span>
+                <span class="tech-tag">Mechanical Engineering</span>
+                <span class="tech-tag">Community Development</span>
+                <span class="tech-tag">Sustainability</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header-with-icon">
+              <div class="project-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="48" height="48" rx="12" fill="rgba(102, 126, 234, 0.15)"/>
+                  <rect x="14" y="16" width="8" height="16" rx="1" stroke="#667eea" stroke-width="2"/>
+                  <path d="M22 24H26M26 24L28 22M26 24L28 26" stroke="#36d1dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="28" y="16" width="8" height="16" rx="1" stroke="#667eea" stroke-width="2" fill="rgba(118, 75, 162, 0.3)"/>
+                  <path d="M30 20H34M30 24H34M30 28H34" stroke="#667eea" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="project-header-text">
+                <h2 class="project-title">SAP Migration & Data Governance</h2>
+                <p class="project-meta">Schlumberger | 2023-2024</p>
+              </div>
+            </div>
+            
+            <div class="project-body">
+              <p class="project-description"><strong>The Stakes:</strong> Migrating enterprise SAP systems is where careers end. One bad data conversion, and you're explaining million-dollar discrepancies to executives. Zero room for error, but manual reviews don't scale. How do you move fast while sleeping at night?</p>
+              
+              <p class="project-description"><strong>My Framework:</strong> I built the safety net that made speed possible. A validation system so comprehensive that errors couldn't slip through, so automated that humans focused on judgment calls, not tedious checks. The result? Zero compliance issues across the entire migration.</p>
+              
+              <h3 class="project-subtitle">Mission-Critical Outcomes</h3>
+              <ul class="project-list">
+                <li><strong>100% compliance</strong> maintained—not a single governance violation across thousands of data conversions</li>
+                <li><strong>60% reduction</strong> in manual review time through intelligent automation</li>
+                <li><strong>Complete audit trails</strong>—every change tracked, every decision documented, rollback always possible</li>
+                <li><strong>Zero operational disruption</strong>—critical business processes never skipped a beat</li>
+              </ul>
+              
+              <h3 class="project-subtitle">The Safety Architecture</h3>
+              <p class="project-description">Built a comprehensive testing framework where automated validation scripts caught edge cases humans would miss. Established clear data lineage documentation—always know where data came from and where it's going. Created reproducible migration processes with built-in quality gates and approval workflows. The philosophy? Automate the tedious, empower the thoughtful, document everything.</p>
+            </div>
+            
+            <div class="project-footer">
+              <div class="project-links">
+                <a class="project-link" href="https://blog.asug.com/hubfs/2019%20AC%20Slide%20Decks%20Wednesday/ASUG83192%20-%20Schlumberger%20Achieving%20New%20Performance%20Standards%20With%20SAP%20Business%20Warehouse%20powered%20by%20SAP%20HANA.pdf" target="_blank" rel="noopener noreferrer">View Presentation</a>
+              </div>
+              <div class="tech-tags">
+                <span class="tech-tag">SAP</span>
+                <span class="tech-tag">Data Migration</span>
+                <span class="tech-tag">Governance</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SQL</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="cta-card">
+          <h2 class="cta-title">See a Pattern in These Projects?</h2>
+          <p class="cta-description">Technical excellence meets human impact. Whether it's 40M records or rural artisans, I build systems people can trust and actually want to use. If you're facing data challenges that need both technical depth and business empathy, let's talk.</p>
+          <a class="btn btn-primary" href="{{ url_for('contact') }}">Discuss Your Challenge</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo" class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copyright">
+        © {{ current_year }} Aneesh Yaramati. All rights reserved.
+        <a href="https://github.com/anyarama/CodeSpaceEmployeeWebApp" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub" class="repo-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="{{ url_for('resume') }}">Resume</a></li>
+          <li><a href="{{ url_for('projects') }}" aria-current="page">Projects</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Aneesh Yaramati</title>
+  <meta name="description" content="Get in touch with Aneesh Yaramati for collaboration opportunities and inquiries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <meta property="og:title" content="Contact — Aneesh Yaramati">
+  <meta property="og:description" content="Get in touch for collaboration opportunities.">
+  <meta property="og:image" content="{{ url_for('static', filename='images/headshot.jpg') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  
+  <header role="banner" class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="{{ url_for('index') }}" aria-label="Home">Aneesh Yaramati</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-controls="primaryNav" aria-expanded="false">
+        <span class="hamburger"></span>
+        Menu
+      </button>
+      <nav aria-label="Primary navigation">
+        <ul id="primaryNav" class="nav">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('resume') }}">Resume</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('contact') }}" class="active" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Get in Touch</h1>
+        <p class="page-subtitle">Let's discuss opportunities, collaborations, or just connect</p>
+      </div>
+    </section>
+
+    <section class="contact-content">
+      <div class="container">
+        <div class="contact-layout">
+          <div class="contact-info-section">
+            <h2 class="section-heading">Contact Information</h2>
+            <p class="contact-intro">Feel free to reach out through any of these channels. I typically respond within 24 hours.</p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="method-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h3 class="method-title">Email</h3>
+                  <a href="mailto:anyarama@iu.edu" class="method-link">anyarama@iu.edu</a>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h3 class="method-title">Phone</h3>
+                  <a href="tel:+18123403132" class="method-link">(812) 340-3132</a>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h3 class="method-title">LinkedIn</h3>
+                  <a href="https://www.linkedin.com/in/aneesh-yaramati/" target="_blank" rel="noopener noreferrer" class="method-link">linkedin.com/in/aneesh-yaramati</a>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.371 0 0 5.373 0 12C0 17.303 3.438 21.8 8.207 23.387C8.807 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 12.374C4.343 11.063 4.812 9.993 5.579 9.153C5.455 8.85 5.044 7.629 5.696 5.977C5.696 5.977 6.704 5.655 8.997 7.207C9.954 6.941 10.98 6.808 12 6.803C13.02 6.808 14.046 6.941 15.003 7.207C17.296 5.655 18.304 5.977 18.304 5.977C18.956 7.629 18.545 8.85 18.421 9.153C19.188 9.993 19.657 11.063 19.657 12.374C19.657 15.985 16.851 16.996 14.181 17.296C14.626 17.676 15.024 18.428 15.024 19.57V22.81C15.024 23.126 15.217 23.503 15.824 23.386C20.592 21.798 24 17.302 24 12C24 5.373 18.627 0 12 0Z"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h3 class="method-title">GitHub Repository</h3>
+                  <a href="https://github.com/anyarama/CodeSpaceEmployeeWebApp" target="_blank" rel="noopener noreferrer" class="method-link">github.com/anyarama/CodeSpaceEmployeeWebApp</a>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <h3 class="method-title">Location</h3>
+                  <p class="method-text">Bloomington, Indiana</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-section">
+            <h2 class="section-heading">Send a Message</h2>
+            <p class="form-description">This is a demonstration form with client-side validation. Fill it out to see the validation in action.</p>
+            
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="firstName" class="form-label">First Name <span class="required" aria-label="required">*</span></label>
+                <input 
+                  type="text" 
+                  id="firstName" 
+                  name="firstName" 
+                  class="form-input" 
+                  required 
+                  autocomplete="given-name"
+                  pattern="^[A-Za-z\\s'-]+$"
+                  title="Use letters, spaces, apostrophes, or hyphens only."
+                  aria-describedby="firstNameError"
+                >
+                <div id="firstNameError" class="form-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="lastName" class="form-label">Last Name <span class="required" aria-label="required">*</span></label>
+                <input 
+                  type="text" 
+                  id="lastName" 
+                  name="lastName" 
+                  class="form-input" 
+                  required 
+                  autocomplete="family-name"
+                  pattern="^[A-Za-z\\s'-]+$"
+                  title="Use letters, spaces, apostrophes, or hyphens only."
+                  aria-describedby="lastNameError"
+                >
+                <div id="lastNameError" class="form-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address <span class="required" aria-label="required">*</span></label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="form-input" 
+                  required 
+                  autocomplete="email"
+                  aria-describedby="emailError"
+                >
+                <div id="emailError" class="form-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="password" class="form-label">Password <span class="required" aria-label="required">*</span></label>
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  class="form-input" 
+                  required 
+                  minlength="8"
+                  pattern="^(?=.*[A-Za-z])(?=.*\\d).{8,}$"
+                  title="Use at least 8 characters with one letter and one number."
+                  autocomplete="new-password"
+                  aria-describedby="passwordHelp passwordError"
+                >
+                <p id="passwordHelp" class="form-help">Minimum 8 characters with at least one letter and one number</p>
+                <div id="passwordError" class="form-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword" class="form-label">Confirm Password <span class="required" aria-label="required">*</span></label>
+                <input 
+                  type="password" 
+                  id="confirmPassword" 
+                  name="confirmPassword" 
+                  class="form-input" 
+                  required 
+                  minlength="8"
+                  pattern="^(?=.*[A-Za-z])(?=.*\\d).{8,}$"
+                  title="Match the password: at least 8 characters with one letter and one number."
+                  autocomplete="new-password"
+                  aria-describedby="confirmPasswordError"
+                >
+                <div id="confirmPasswordError" class="form-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo" class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copyright">
+        © {{ current_year }} Aneesh Yaramati. All rights reserved.
+        <a href="https://github.com/anyarama/CodeSpaceEmployeeWebApp" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub" class="repo-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="{{ url_for('resume') }}">Resume</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('contact') }}" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
