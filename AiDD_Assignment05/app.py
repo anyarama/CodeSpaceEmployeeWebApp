@@ -6,8 +6,12 @@ Description: Data Engineering & Analytics Professional Portfolio
 
 from flask import Flask, render_template, request, redirect, url_for
 import datetime
+import DAL
 
 app = Flask(__name__)
+
+# Initialize database on startup
+DAL.init_database()
 
 # Configuration
 app.config['SECRET_KEY'] = 'your-secret-key-here-change-in-production'
@@ -29,8 +33,31 @@ def resume():
 
 @app.route('/projects')
 def projects():
-    """Projects page"""
-    return render_template('projects.html')
+    """Projects page - displays all projects from database"""
+    all_projects = DAL.get_all_projects()
+    return render_template('projects.html', projects=all_projects)
+
+@app.route('/add_project', methods=['GET', 'POST'])
+def add_project():
+    """Add new project page with form"""
+    if request.method == 'POST':
+        # Get form data
+        title = request.form.get('title')
+        description = request.form.get('description')
+        image_filename = request.form.get('image_filename')
+        
+        # Insert into database
+        if title and description and image_filename:
+            DAL.insert_project(title, description, image_filename)
+            return redirect(url_for('projects'))
+        
+    return render_template('add_project.html')
+
+@app.route('/delete_project/<int:project_id>', methods=['POST'])
+def delete_project(project_id):
+    """Delete a project by ID"""
+    DAL.delete_project(project_id)
+    return redirect(url_for('projects'))
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():

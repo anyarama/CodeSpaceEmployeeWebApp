@@ -1304,6 +1304,12 @@ p {
   font-size: var(--font-size-base);
   transition: all var(--transition-fast);
   background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-subtle);
+  opacity: 0.6;
 }
 
 .form-input:hover {
@@ -1623,6 +1629,178 @@ p {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================================================
+   Database Projects Table
+   ============================================================================ */
+.projects-actions {
+  margin-bottom: var(--space-2xl);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.projects-table-wrapper {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-slow);
+}
+
+.projects-table-wrapper:hover {
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.projects-table thead {
+  background: var(--color-bg-subtle);
+  border-bottom: 2px solid var(--color-border-light);
+}
+
+.projects-table th {
+  padding: var(--space-lg);
+  text-align: left;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.projects-table th:last-child {
+  text-align: center;
+}
+
+.projects-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition-fast);
+}
+
+.projects-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.projects-table tbody tr:hover {
+  background: var(--color-bg-subtle);
+}
+
+.projects-table td {
+  padding: var(--space-lg);
+  vertical-align: top;
+}
+
+.projects-table td:last-child {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-project-title {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-xs);
+}
+
+.table-project-description {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-sm);
+}
+
+.table-project-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-md);
+}
+
+.table-project-image img {
+  max-width: 200px;
+  max-height: 150px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-base);
+}
+
+.table-project-image img:hover {
+  transform: scale(1.05);
+}
+
+.btn-delete {
+  padding: var(--space-sm) var(--space-lg);
+  background: transparent;
+  color: var(--color-error);
+  border: 2px solid var(--color-error);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-delete::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-error);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-delete:hover {
+  color: white;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-delete:hover::before {
+  opacity: 1;
+}
+
+.btn-delete:active {
+  transform: translateY(0);
+}
+
+.empty-state {
+  padding: var(--space-4xl) var(--space-2xl);
+  text-align: center;
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.empty-state-message {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  line-height: var(--line-height-relaxed);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.contact-form-wrapper {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* ============================================================================
