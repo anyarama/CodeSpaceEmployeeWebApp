@@ -9,11 +9,14 @@
 ```
 AiDD_Assignment05/
 ├── app.py                    # Main Flask application with all routes
+├── DAL.py                    # Data Access Layer for database operations
+├── projects.db               # SQLite database (auto-created on first run)
 ├── requirements.txt          # Python dependencies
 ├── README.md                 # This file
+├── SETUP_INSTRUCTIONS.md     # Detailed setup guide
 ├── static/                   # Static files (CSS, JS, Images)
 │   ├── css/
-│   │   └── styles.css       # Main stylesheet
+│   │   └── styles.css       # Main stylesheet with glassmorphic theme
 │   ├── js/
 │   │   └── script.js        # JavaScript for navigation
 │   └── images/              # Image assets
@@ -27,7 +30,8 @@ AiDD_Assignment05/
     ├── index.html           # Home page
     ├── about.html           # About page
     ├── resume.html          # Resume page
-    ├── projects.html        # Projects showcase
+    ├── projects.html        # Projects page with database table
+    ├── add_project.html     # Form to add new projects
     ├── contact.html         # Contact form
     └── thankyou.html        # Thank you page
 ```
@@ -49,7 +53,22 @@ Or install Flask directly:
 pip install Flask==3.0.0
 ```
 
-### Step 2: Run the Application
+### Step 2: Initialize Database
+
+The database will be automatically created when you first run the application. It creates a `projects.db` file in the root directory with the following structure:
+
+**Database Schema:**
+```sql
+CREATE TABLE projects (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    image_filename TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### Step 3: Run the Application
 
 ```bash
 python app.py
@@ -60,13 +79,14 @@ The application will start on `http://localhost:8001` (configured to avoid port 
 **💡 Recommended: Use Virtual Environment**  
 See `SETUP_INSTRUCTIONS.md` for complete setup with virtual environment (best practice).
 
-### Step 3: Access the Website
+### Step 4: Access the Website
 
 Open your web browser and navigate to:
 - **Home:** http://localhost:8001/
 - **About:** http://localhost:8001/about
 - **Resume:** http://localhost:8001/resume
-- **Projects:** http://localhost:8001/projects
+- **Projects:** http://localhost:8001/projects (Database-driven)
+- **Add Project:** http://localhost:8001/add_project (Add new projects)
 - **Contact:** http://localhost:8001/contact
 
 **📖 For detailed setup with virtual environment, see `SETUP_INSTRUCTIONS.md`**
@@ -77,51 +97,69 @@ Open your web browser and navigate to:
 1. **Home (/)** - Hero section with introduction and feature highlights
 2. **About (/about)** - Personal story and background
 3. **Resume (/resume)** - Professional experience and education
-4. **Projects (/projects)** - Showcase of key projects with detailed descriptions
-5. **Contact (/contact)** - Contact form with POST handling
-6. **Thank You (/thankyou)** - Confirmation page after form submission
+4. **Projects (/projects)** - Database-driven projects showcase with HTML table
+5. **Add Project (/add_project)** - Form to add new projects to database
+6. **Delete Project (/delete_project/<id>)** - Remove projects from database
+7. **Contact (/contact)** - Contact form with POST handling
+8. **Thank You (/thankyou)** - Confirmation page after form submission
 
 ### Technical Features
-- ✅ Flask routing with proper URL generation using `url_for()`
-- ✅ Static file serving (CSS, JavaScript, Images)
-- ✅ Template inheritance with Jinja2
-- ✅ Form handling (Contact form with POST method)
-- ✅ Dynamic year injection in footer
-- ✅ Error handling (404, 500)
-- ✅ Responsive design
-- ✅ Accessibility features
-- ✅ Professional glassmorphism dark theme
+- ✅ **Flask routing** with proper URL generation using `url_for()`
+- ✅ **SQLite database integration** with Data Access Layer (DAL)
+- ✅ **CRUD operations** - Create, Read, and Delete projects
+- ✅ **Database-driven content** - Projects pulled from SQLite database
+- ✅ **Data Access Layer (DAL.py)** - Separation of database logic
+- ✅ **Form handling** - Contact form and project submission
+- ✅ **Image management** - Projects linked to images in static/images/
+- ✅ **Static file serving** (CSS, JavaScript, Images)
+- ✅ **Template inheritance** with Jinja2
+- ✅ **Dynamic year injection** in footer
+- ✅ **Error handling** (404, 500)
+- ✅ **Responsive design** with glassmorphic UI
+- ✅ **Accessibility features** - WCAG compliant
+- ✅ **Professional dark theme** - Premium glassmorphism aesthetic
 
 ## 🏗️ Flask Best Practices Implemented
 
 1. **Project Structure**
    - Proper separation of static files and templates
    - Organized folder structure following Flask conventions
+   - **Data Access Layer (DAL)** - Separation of database logic
 
 2. **URL Routing**
    - All links use Flask's `url_for()` function
    - Clean, RESTful route names
    - Proper HTTP methods (GET, POST)
 
-3. **Template Management**
-   - Jinja2 templating with proper escaping
-   - Dynamic content rendering
-   - Context processors for global variables
+3. **Database Management**
+   - **SQLite database** for persistent storage
+   - **Parameterized queries** to prevent SQL injection
+   - **Row factory** for dictionary-style data access
+   - **Transaction handling** with proper commit/close
 
-4. **Static Files**
+4. **Template Management**
+   - Jinja2 templating with proper escaping
+   - Dynamic content rendering from database
+   - Context processors for global variables
+   - Template loops for database records
+
+5. **Static Files**
    - Organized in css/, js/, and images/ subdirectories
    - Served via Flask's static file handling
    - Proper URL generation with `url_for('static', filename=...)`
+   - Images referenced from database records
 
-5. **Configuration**
+6. **Configuration**
    - Secret key configuration
    - Debug mode for development
    - Host and port configuration
+   - Database initialization on startup
 
-6. **Error Handling**
+7. **Error Handling**
    - Custom 404 error handler
    - Custom 500 error handler
    - Graceful error recovery
+   - Form validation
 
 ## 🔧 Development
 
@@ -138,15 +176,51 @@ pip install gunicorn
 gunicorn app:app
 ```
 
+## 💾 Database Features (Assignment 05)
+
+### Data Access Layer (DAL.py)
+The `DAL.py` file provides a clean interface for all database operations:
+
+**Available Functions:**
+- `init_database()` - Creates the projects table if it doesn't exist
+- `get_all_projects()` - Retrieves all projects from database
+- `get_project_by_id(project_id)` - Gets a single project
+- `insert_project(title, description, image_filename)` - Adds new project
+- `delete_project(project_id)` - Removes a project
+- `update_project(project_id, ...)` - Updates existing project
+
+### Projects Management Workflow
+
+1. **View Projects** - Navigate to `/projects` to see all projects in an HTML table
+2. **Add Project** - Click "Add New Project" button or visit `/add_project`
+3. **Fill Form** - Enter title, description, and image filename
+4. **Upload Image** - Manually place image in `static/images/` folder
+5. **Submit** - Project appears immediately in the table
+6. **Delete** - Click delete button with confirmation dialog
+
+### Database Table Structure
+
+| Column | Type | Constraints |
+|--------|------|-------------|
+| id | INTEGER | PRIMARY KEY, AUTOINCREMENT |
+| title | TEXT | NOT NULL |
+| description | TEXT | NOT NULL |
+| image_filename | TEXT | NOT NULL |
+| created_at | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP |
+
 ## 📝 Notes
 
 - The contact form currently redirects to a thank you page without sending emails
+- **Image Upload:** Currently requires manual upload to `static/images/` folder
+- **Database:** SQLite database file (`projects.db`) is created automatically
 - For production use, implement:
+  - File upload functionality for images
   - Email sending functionality
-  - Form validation
+  - Enhanced form validation
   - CSRF protection
   - Environment-based configuration
   - Proper secret key management
+  - Database migrations tool (e.g., Flask-Migrate)
 
 ## 🎨 Design
 
@@ -160,6 +234,9 @@ gunicorn app:app
 
 - **Flask 3.0.0** - Web framework
 - **Werkzeug 3.0.1** - WSGI utilities (Flask dependency)
+- **SQLite3** - Built-in Python database (no installation required)
+
+**Note:** SQLite3 is included with Python standard library, no additional installation needed.
 
 ## 👤 Author
 
