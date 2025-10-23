@@ -1,0 +1,40 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+.prompt/
+SETUP_INSTRUCTIONS.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database (will be created in container)
+*.db
+
+# Docker files
+Dockerfile
+.dockerignore
