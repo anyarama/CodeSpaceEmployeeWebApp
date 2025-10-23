@@ -1,0 +1,40 @@
+[flake8]
+# Exclude virtual environments and other non-project directories
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    env,
+    .venv,
+    ENV,
+    env.bak,
+    venv.bak,
+    .eggs,
+    *.egg,
+    build,
+    dist,
+    .pytest_cache,
+    htmlcov,
+    .tox,
+    cursor-day01,
+    node_modules,
+    .mypy_cache,
+    .coverage
+
+# Set max line length to match GitHub editor width
+max-line-length = 127
+
+# Set maximum complexity
+max-complexity = 10
+
+# Ignore specific error codes if needed
+# ignore = E203, W503
+
+# Show source code for each error
+show-source = True
+
+# Show statistics at the end
+statistics = True
+
+# Count errors and warnings
+count = True
